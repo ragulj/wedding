@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ragul & Priyadharsini - Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary-gold: #D4AF37;
+      --secondary-gold: #F4E5B2;
+      --text-dark: #2C2C2C;
+      --text-gray: #6B6B6B;
+      --bg-cream: #FFF8F0;
+      --white: #FFFFFF;
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 20px 40px -5px rgba(212, 175, 55, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #FFF8F0, #FEFBF6, #FFF8F0);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    /* Floating Hearts - More Organic */
+    .floating-hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -50px;
+      color: var(--primary-gold);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    @keyframes float-up-1 {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateY(-50vh) rotate(180deg) translateX(20px);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(-100vh) rotate(360deg) translateX(-20px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes float-up-2 {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: translateY(-50vh) rotate(-180deg) translateX(-30px);
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: translateY(-100vh) rotate(-360deg) translateX(30px);
+        opacity: 0;
+      }
+    }
+
+    .heart-pulse {
+      animation: pulse-heart 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse-heart {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+      }
+    }
+
+    .heart-blink {
+      animation: blink-heart 2s infinite ease-in-out;
+    }
+
+    @keyframes blink-heart {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scale(0.9);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    /* Header */
+    .header {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .header-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .header-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      /* Slight scale for parallax feel potential */
+    }
+
+    .header-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(212, 175, 55, 0.2), rgba(255, 248, 240, 0.9), rgba(212, 175, 55, 0.1));
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-heart {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      color: var(--primary-gold);
+    }
+
+    .header h1 {
+      font-size: 5rem;
+      color: var(--text-dark);
+      margin: 0;
+      line-height: 1.1;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    }
+
+    .header-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 24px 0;
+    }
+
+    .header-line {
+      width: 100px;
+      height: 1px;
+      background: var(--primary-gold);
+      opacity: 0.6;
+    }
+
+    .header-divider svg {
+      margin: 0 16px;
+      color: var(--primary-gold);
+    }
+
+    .header-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      color: var(--text-gray);
+      margin-top: 24px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .scroll-indicator-inner {
+      width: 26px;
+      height: 42px;
+      border: 2px solid var(--primary-gold);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+
+    .scroll-dot {
+      width: 4px;
+      height: 8px;
+      background: var(--primary-gold);
+      border-radius: 2px;
+      animation: scroll-down 2s infinite;
+    }
+
+    @keyframes scroll-down {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(16px);
+        opacity: 0;
+      }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-title h2 {
+      font-size: 3.5rem;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .section-underline {
+      width: 80px;
+      height: 2px;
+      background: var(--primary-gold);
+      margin: 0 auto 24px;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-gray);
+      font-style: italic;
+    }
+
+    /* Countdown */
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .countdown-item {
+      background: var(--glass-bg);
+      backdrop-filter: blur(5px);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      padding: 40px 20px;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .countdown-item:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-8px);
+    }
+
+    .countdown-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: var(--primary-gold);
+      margin-bottom: 8px;
+    }
+
+    .countdown-label {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    /* Cards Common */
+    .elegant-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .elegant-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-5px);
+    }
+
+    /* Image Grid */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 32px;
+    }
+
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      height: 350px;
+      cursor: pointer;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .image-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .image-card:hover .image-overlay {
+      opacity: 1;
+    }
+
+    /* Timeline Redesign */
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    /* Vertical Line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: repeating-linear-gradient(to bottom, var(--primary-gold) 0, var(--primary-gold) 10px, transparent 10px, transparent 20px);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 80px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .timeline-content {
+      width: 45%;
+      position: relative;
+    }
+
+    /* Alternating logic */
+    .timeline-item:nth-child(odd) {
+      justify-content: flex-start;
+    }
+
+    .timeline-item:nth-child(even) {
+      justify-content: flex-end;
+    }
+
+    /* Markers */
+    .timeline-marker {
+      position: absolute;
+      left: 50%;
+      top: 40px;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: var(--bg-cream);
+      border: 2px solid var(--primary-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      color: var(--primary-gold);
+      transition: all 0.3s ease;
+    }
+
+    /* Future Event Marker Styling */
+    .timeline-item.future .timeline-marker {
+      background: var(--primary-gold);
+      color: var(--white);
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+      border-color: var(--primary-gold);
+    }
+
+    .timeline-item.future .timeline-marker svg {
+      animation: pulse-heart 2s infinite ease-in-out;
+    }
+
+    .event-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      width: 450px;
+      /* fixed width for alternating layout */
+      max-width: 100%;
+    }
+
+    .event-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-5px);
+    }
+
+    /* Future Event Highlight - Elegant Glow */
+    .event-card.future-event {
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      /* Very subtle border */
+      box-shadow: 0 15px 40px -10px rgba(212, 175, 55, 0.25);
+      background: linear-gradient(to bottom, #FFFFFF, #FFFCF5);
+      position: relative;
+    }
+
+    .event-card.future-event::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary-gold), var(--secondary-gold));
+    }
+
+    .event-card.future-event .event-badge {
+      background: var(--primary-gold);
+      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
+    }
+
+    .event-image {
+      height: 240px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-image.portrait {
+      height: 480px;
+    }
+
+    @media (max-width: 768px) {
+      .event-image.portrait {
+        height: 350px;
+      }
+    }
+
+    .event-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .event-card:hover .event-image img {
+      transform: scale(1.05);
+    }
+
+    .event-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    }
+
+    .event-image-content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+    }
+
+    .event-title {
+      font-size: 2rem;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .event-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: var(--primary-gold);
+      color: white;
+      font-size: 0.8rem;
+      border-radius: 20px;
+      margin-top: 5px;
+    }
+
+    .event-details {
+      padding: 30px;
+    }
+
+    .event-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .event-detail-item svg {
+      color: var(--primary-gold);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .event-detail-text {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+    .event-detail-subtext {
+      color: var(--text-gray);
+    }
+
+    .map-button {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: var(--primary-gold);
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: all 0.3s;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .map-button:hover {
+      background: #B8941F;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      grid-auto-flow: dense;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .gallery-item.landscape {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+
+    .gallery-item.portrait {
+      grid-column: span 1;
+      aspect-ratio: 3/4;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* RSVP Form */
+    .rsvp-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      padding: 60px 40px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: #FAFAFA;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 14px;
+      width: 100%;
+      font-family: inherit;
+      transition: all 0.3s;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary-gold);
+      background: #FFF;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+
+    .form-submit {
+      background: var(--primary-gold);
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: 1px;
+    }
+
+    .form-submit:hover {
+      background: #B8941F;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      position: relative;
+      background: #1A1A1A;
+      color: #fff;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      margin-top: 80px;
+      overflow: hidden;
+    }
+
+    .footer-wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .footer-wave svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 60px;
+      transform: rotateY(180deg);
+    }
+
+    .footer-wave .shape-fill {
+      fill: #FFF8F0;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .footer-logo .initial {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--primary-gold);
+    }
+
+    .footer-heart-icon {
+      width: 40px;
+      height: 40px;
+      color: #fff;
+    }
+
+    .footer-message h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #D4AF37, #F4E5B2, #D4AF37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-message p {
+      color: #aaa;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .footer-details {
+      margin-top: 40px;
+    }
+
+    .footer-couple {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .footer-date-loc {
+      color: var(--primary-gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .footer-divider {
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.5), transparent);
+      margin: 40px 0;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-gold);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+      transition: all 0.3s;
+      z-index: 100;
+      opacity: 0.8;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-5px);
+      opacity: 1;
+      background: #B8941F;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+
+      /* Header Landscape Mode on Mobile */
+      .header {
+        min-height: 60vh;
+      }
+
+      .header h1 {
+        font-size: 2.2rem;
+      }
+
+      .header-heart {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
+      }
+
+      .header-divider {
+        margin: 12px 0;
+      }
+
+      .header-line {
+        width: 60px;
+      }
+
+      .header-subtitle {
+        font-size: 0.9rem;
+        margin-top: 12px;
+        letter-spacing: 3px;
+      }
+
+      .section {
+        padding: 50px 15px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      /* Timeline Reset for Mobile */
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        margin-bottom: 40px;
+        justify-content: flex-start !important;
+        padding-left: 50px;
+      }
+
+      .timeline-content {
+        width: 100%;
+      }
+
+      .event-card {
+        width: 100%;
+      }
+
+      .timeline-marker {
+        left: 20px;
+      }
+
+      .rsvp-form {
+        padding: 40px 20px;
+      }
+
+      /* Mobile Gallery Reset */
+      .gallery-item.landscape,
+      .gallery-item.portrait {
+        grid-column: span 1;
+        aspect-ratio: auto;
+        /* Let image define height or set fixed height */
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Floating Hearts -->
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-bg">
+      <img src="./Assets/Common/HeaderBackground.png" alt="Couple">
+      <div class="header-overlay"></div>
+      <div class="header-overlay-2"></div>
+    </div>
+
+    <div class="header-content">
+      <div class="header-heart">
+        <svg fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      </div>
+
+      <h1>Ragul</h1>
+
+      <div class="header-divider">
+        <div class="header-line"></div>
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+        <div class="header-line"></div>
+      </div>
+
+      <h1>Priyadharsini</h1>
+
+      <p class="header-subtitle">ARE GETTING MARRIED</p>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-indicator-inner">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Countdown -->
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+          <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+        <h2>Counting Down to Forever</h2>
+      </div>
+
+      <div class="countdown-grid">
+        <div class="countdown-item" data-aos="zoom-in" data-aos-delay="100">
+          <div class="countdown-number" id="days">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-item" data-aos="zoom-in" data-aos-delay="200">
+          <div class="countdown-number" id="hours">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-item" data-aos="zoom-in" data-aos-delay="300">
+          <div class="countdown-number" id="minutes">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-item" data-aos="zoom-in" data-aos-delay="400">
+          <div class="countdown-number" id="seconds">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <p style="font-size: 1.25rem; color: #6B6B6B; font-style: italic;">Until our special day begins...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Save the Date -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+          <svg class="heart-pulse" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            style="color: #D4AF37;">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <h2>Save the Date</h2>
+        <div class="section-underline"></div>
+        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px;">
+          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37; animation-delay: 0.2s;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37; animation-delay: 0.4s;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37; animation-delay: 0.6s;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37; animation-delay: 0.8s;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="image-grid" data-aos="fade-up">
+        <div class="image-card" data-aos="flip-left" data-aos-delay="100">
+          <img src="./Assets/SaveTheDate/Image1.png" alt="Couple">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="image-card">
+          <img src="./Assets/SaveTheDate/Image2.png" alt="Couple">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="image-card">
+          <img src="./Assets/SaveTheDate/Image3.png" alt="Couple">
+          <div class="image-overlay"></div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 64px;">
+        <p style="font-size: 1.875rem; color: #6B6B6B; margin-bottom: 8px;">February 2026</p>
+        <p style="font-size: 1.25rem; color: #8B8B8B;">Three Days of Celebration</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(255, 248, 240, 0.5));">
+    <div class="container">
+      <div class="section-title">
+        <h2>Timeline</h2>
+        <div class="section-underline"></div>
+        <p class="section-subtitle">Join us in celebrating our special day</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-marker">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <div class="event-card">
+            <div class="event-image portrait">
+              <img src="./Assets/Timeline/FirstPic.png" alt="Reception">
+              <div class="event-image-overlay"></div>
+              <div class="event-image-content">
+                <h3 class="event-title">First Meet</h3>
+              </div>
+            </div>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Tuesday, Aug 18, 2017</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <p class="event-detail-text">1st Year</p>
+                  <p class="event-detail-subtext">SECE class room</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-marker">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <div class="event-card">
+            <div class="event-image portrait">
+              <img src="./Assets/Timeline/FirstTour.png" alt="Reception" style="height: 124%;">
+              <div class="event-image-overlay"></div>
+              <div class="event-image-content">
+                <h3 class="event-title">First Tour</h3>
+              </div>
+            </div>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Friday, Oct 4, 2019</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Pine Forest</p>
+                  <p class="event-detail-subtext">Vagamon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-marker">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <div class="event-card">
+            <div class="event-image">
+              <img src="./Assets/Timeline/Proposal.png" alt="Reception">
+              <div class="event-image-overlay"></div>
+              <div class="event-image-content">
+                <h3 class="event-title">Proposal</h3>
+              </div>
+            </div>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Sunday, Dec 15, 2024</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <div>
+                  <p class="event-detail-text">5:40 PM</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Amaneeswarar Temple</p>
+                  <p class="event-detail-subtext">Coimbatore</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-marker">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <div class="event-card">
+            <div class="event-image">
+              <img src="./Assets/Timeline/Engaged.png" alt="Reception">
+              <div class="event-image-overlay"></div>
+              <div class="event-image-content">
+                <h3 class="event-title">Officially Engaged</h3>
+              </div>
+            </div>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Sunday, Sept 7, 2025</p>
+                </div>
+              </div>
+
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Madhava Inn</p>
+                  <p class="event-detail-subtext">Pollachi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 1 -->
+        <div class="timeline-item future" data-aos="fade-right">
+          <div class="timeline-marker">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <div class="event-card future-event">
+            <div class="event-image">
+              <img src="./Assets/Timeline/Reception1.png" alt="Reception">
+              <div class="event-image-overlay"></div>
+              <div class="event-image-content">
+                <h3 class="event-title">Reception 1</h3>
+              </div>
+            </div>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Saturday, Feb 21, 2026</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <div>
+                  <p class="event-detail-text">7:00 PM</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Kumaragam Smart Venue</p>
+                  <p class="event-detail-subtext">Coimbatore</p>
+                </div>
+              </div>
+              <a href="https://maps.app.goo.gl/eizq6NUoupMdLVSL9" target="_blank" class="map-button">View on Map</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="timeline-item future" data-aos="fade-left">
+          <div class="timeline-marker">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <div class="event-card future-event">
+            <div class="event-image">
+              <img src="./Assets/Timeline/Muhurtham.png" alt="Muhurtham">
+              <div class="event-image-overlay"></div>
+              <div class="event-image-content">
+                <h3 class="event-title">Muhurtham</h3>
+                <span class="event-badge">Main Ceremony</span>
+              </div>
+            </div>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Sunday, Feb 22, 2026</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <div>
+                  <p class="event-detail-text">8:00 AM</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Amaneeswarar Temple</p>
+                  <p class="event-detail-subtext">Coimbatore</p>
+                </div>
+              </div>
+              <a href="https://maps.app.goo.gl/qCr1NZModu1QqcDR9" target="_blank" class="map-button">View on Map</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="timeline-item future" data-aos="fade-right">
+          <div class="timeline-marker">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <div class="event-card future-event">
+            <div class="event-image">
+              <img src="./Assets/Timeline/Reception2.png" alt="Reception">
+              <div class="event-image-overlay"></div>
+              <div class="event-image-content">
+                <h3 class="event-title">Reception 2</h3>
+              </div>
+            </div>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Monday, Feb 23, 2026</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <div>
+                  <p class="event-detail-text">6:00 PM</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <p class="event-detail-text">Sri Murugan Thirumana Mandapam</p>
+                  <p class="event-detail-subtext">Coimbatore</p>
+                </div>
+              </div>
+              <a href="https://maps.app.goo.gl/SwTUzy5sFWki5jg2A" target="_blank" class="map-button">View on Map</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" style="background: linear-gradient(to bottom, rgba(255, 248, 240, 0.5), transparent);">
+    <div class="container">
+      <div class="section-title">
+        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+          <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+        <h2>Gallery of Love</h2>
+        <div class="section-underline"></div>
+        <p class="section-subtitle">Capturing precious moments of our journey together</p>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <!-- L1 -->
+        <div class="gallery-item landscape" onclick="openLightbox(0)">
+          <img src="./Assets/Gallery/L1.jpg" alt="Gallery 1">
+          <div class="image-overlay"></div>
+        </div>
+        <!-- P1 -->
+        <div class="gallery-item portrait" onclick="openLightbox(1)">
+          <img src="./Assets/Gallery/P1.jpg" alt="Gallery 2">
+          <div class="image-overlay"></div>
+        </div>
+        <!-- L2 -->
+        <div class="gallery-item landscape" onclick="openLightbox(2)">
+          <img src="./Assets/Gallery/L2.jpg" alt="Gallery 3">
+          <div class="image-overlay"></div>
+        </div>
+        <!-- P2 -->
+        <div class="gallery-item portrait" onclick="openLightbox(3)">
+          <img src="./Assets/Gallery/P2.jpg" alt="Gallery 4">
+          <div class="image-overlay"></div>
+        </div>
+        <!-- P3 -->
+        <div class="gallery-item portrait" onclick="openLightbox(4)">
+          <img src="./Assets/Gallery/P3.jpg" alt="Gallery 5">
+          <div class="image-overlay"></div>
+        </div>
+        <!-- L3 -->
+        <div class="gallery-item landscape" onclick="openLightbox(5)">
+          <img src="./Assets/Gallery/L3.jpg" alt="Gallery 6">
+          <div class="image-overlay"></div>
+        </div>
+        <!-- L4 -->
+        <div class="gallery-item landscape" onclick="openLightbox(6)">
+          <img src="./Assets/Gallery/L4.JPG" alt="Gallery 7">
+          <div class="image-overlay"></div>
+        </div>
+        <!-- P4 -->
+        <div class="gallery-item portrait" onclick="openLightbox(7)">
+          <img src="./Assets/Gallery/P4.jpg" alt="Gallery 8">
+          <div class="image-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RSVP -->
+  <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(255, 248, 240, 0.5));">
+    <div class="container">
+      <div class="section-title">
+        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+          <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+        <h2>RSVP</h2>
+        <div class="section-underline"></div>
+        <p class="section-subtitle">Please let us know if you'll be joining us</p>
+      </div>
+
+      <div class="rsvp-form" data-aos="zoom-in-up"
+        style="display: flex; justify-content: center; overflow: hidden; padding: 0;">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfCMnbWDzpOk3F1prYZVSYn0Dn3Ju8EDbFpf8osQn6aWGEAcg/viewform?embedded=true"
+          width="640" height="960" frameborder="0" marginheight="0" marginwidth="0"
+          style="max-width: 100%;">Loading…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-wave">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          class="shape-fill"></path>
+      </svg>
+    </div>
+
+    <div class="container footer-content">
+      <div class="footer-logo">
+        <span class="initial">R</span>
+        <svg class="heart-pulse footer-heart-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+        <span class="initial">P</span>
+      </div>
+
+      <div class="footer-message">
+        <h3>We Can't Wait to Celebrate With You!</h3>
+        <p>Your presence is the greatest gift we could ask for</p>
+      </div>
+
+      <div class="footer-details">
+        <div class="footer-couple">Ragul & Priyadharsini</div>
+        <div class="footer-date-loc">February 21-23, 2026 • Coimbatore, India</div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-thankyou">
+        <p>With love and gratitude</p>
+      </div>
+
+      <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // AOS.init removed from here due to potential race conditions with load event
+
+
+    // Floating Hearts
+    function createFloatingHearts() {
+      const container = document.getElementById('floatingHearts');
+      const heartSVG = '<svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.innerHTML = heartSVG;
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.width = (20 + Math.random() * 20) + 'px';
+        heart.style.height = (20 + Math.random() * 20) + 'px';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        heart.style.animationDuration = (10 + Math.random() * 10) + 's';
+        container.appendChild(heart);
+      }
+    }
+
+    // Countdown Timer
+    function updateCountdown() {
+      const weddingDate = new Date('2026-02-21T19:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      }
+    }
+
+    // Lightbox
+    // Lightbox
+    const galleryImages = [
+      './Assets/Gallery/L1.jpg',
+      './Assets/Gallery/P1.jpg',
+      './Assets/Gallery/L2.jpg',
+      './Assets/Gallery/P2.jpg',
+      './Assets/Gallery/P3.jpg',
+      './Assets/Gallery/L3.jpg',
+      './Assets/Gallery/L4.JPG',
+      './Assets/Gallery/P4.jpg'
+    ];
+
+    let currentImageIndex = 0;
+
+    function openLightbox(index) {
+      currentImageIndex = index;
+      const lightbox = document.getElementById('lightbox');
+      const image = document.getElementById('lightboxImage');
+      const counter = document.getElementById('lightboxCounter');
+
+      image.src = galleryImages[index];
+      counter.textContent = `${index + 1} / ${galleryImages.length}`;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    function changeImage(direction) {
+      currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightboxImage').src = galleryImages[currentImageIndex];
+      document.getElementById('lightboxCounter').textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+
+    // Close lightbox on escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        changeImage(-1);
+      } else if (e.key === 'ArrowRight') {
+        changeImage(1);
+      }
+    });
+
+    // RSVP Form logic removed as it's replaced by Google Forms iframe
+
+
+    // Initialize
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        AOS.init({
+          duration: 1000,
+          once: true,
+          offset: 100,
+          easing: 'ease-out-cubic'
+        });
+        AOS.refresh();
+      }, 100);
+
+      createFloatingHearts();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+</body>
+
+</html>
