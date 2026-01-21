@@ -12,6 +12,29 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="./Assets/Chat/hello.png" as="image">
+  <link rel="preload" href="./Assets/Chat/invite.png" as="image">
+  <link rel="preload" href="./Assets/Common/HeaderBackground.png" as="image">
+  <link rel="preload" href="./Assets/SaveTheDate/Image1.png" as="image">
+  <link rel="preload" href="./Assets/SaveTheDate/Image2.png" as="image">
+  <link rel="preload" href="./Assets/SaveTheDate/Image3.png" as="image">
+  <link rel="preload" href="./Assets/Timeline/FirstPic.png" as="image">
+  <link rel="preload" href="./Assets/Timeline/FirstTour.png" as="image">
+  <link rel="preload" href="./Assets/Timeline/Proposal.png" as="image">
+  <link rel="preload" href="./Assets/Timeline/Engaged.png" as="image">
+  <link rel="preload" href="./Assets/Timeline/Reception1.png" as="image">
+  <link rel="preload" href="./Assets/Timeline/Muhurtham.png" as="image">
+  <link rel="preload" href="./Assets/Timeline/Reception2.png" as="image">
+  <link rel="preload" href="./Assets/Gallery/L1.jpg" as="image">
+  <link rel="preload" href="./Assets/Gallery/L2.jpg" as="image">
+  <link rel="preload" href="./Assets/Gallery/L3.jpg" as="image">
+  <link rel="preload" href="./Assets/Gallery/L4.JPG" as="image">
+  <link rel="preload" href="./Assets/Gallery/P1.jpg" as="image">
+  <link rel="preload" href="./Assets/Gallery/P2.jpg" as="image">
+  <link rel="preload" href="./Assets/Gallery/P3.jpg" as="image">
+  <link rel="preload" href="./Assets/Gallery/P4.jpg" as="image">
   <style>
     :root {
       --primary-gold: #D4AF37;
@@ -1105,8 +1128,8 @@
       /* Center vertically - stable position */
       justify-content: center;
       gap: 20px;
-      width: 100vw;
       height: min(450px, 80vh);
+      width: 44vw;
       /* Responsive fixed height */
       padding: 0 20px;
     }
@@ -1259,615 +1282,621 @@
   <!-- Floating Hearts -->
   <!-- <div class="floating-hearts" id="floatingHearts"></div> -->
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-bg">
-      <img src="./Assets/Common/HeaderBackground.png" alt="Couple">
-      <div class="header-overlay"></div>
-      <div class="header-overlay-2"></div>
-    </div>
+  <!-- Main Page Content (hidden until loader dismissed) -->
+  <main id="page-content" style="display: none;">
 
-    <div class="header-content">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-bg">
+        <img src="./Assets/Common/HeaderBackground.png" alt="Couple">
+        <div class="header-overlay"></div>
+        <div class="header-overlay-2"></div>
+      </div>
 
-      <h1>Ragul</h1>
+      <div class="header-content">
 
-      <div class="header-divider">
-        <div class="header-line"></div>
-        <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24" style="color: #D4AF37;">
-          <path
-            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg>
-        <!-- <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <h1>Ragul</h1>
+
+        <div class="header-divider">
+          <div class="header-line"></div>
+          <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
+            style="color: #D4AF37;">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <!-- <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
           <path
             d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
         </svg> -->
-        <div class="header-line"></div>
+          <div class="header-line"></div>
+        </div>
+
+        <h1>Priyadharsini</h1>
+
+        <p class="header-subtitle">WE'RE GETTING MARRIED</p>
       </div>
 
-      <h1>Priyadharsini</h1>
+    </header>
 
-      <p class="header-subtitle">WE'RE GETTING MARRIED</p>
-    </div>
-
-  </header>
-
-  <!-- Countdown -->
-  <section class="section">
-    <div class="container" data-aos="fade-up">
-      <div class="section-title">
-        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-          <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
-            style="color: #D4AF37;">
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-        </div>
-        <h2>Counting Down to Forever</h2>
-      </div>
-
-      <div class="countdown-grid">
-        <div class="countdown-item" data-aos="zoom-in" data-aos-delay="100">
-          <div class="countdown-number" id="days">00</div>
-          <div class="countdown-label">Days</div>
-        </div>
-        <div class="countdown-item" data-aos="zoom-in" data-aos-delay="200">
-          <div class="countdown-number" id="hours">00</div>
-          <div class="countdown-label">Hours</div>
-        </div>
-        <div class="countdown-item" data-aos="zoom-in" data-aos-delay="300">
-          <div class="countdown-number" id="minutes">00</div>
-          <div class="countdown-label">Minutes</div>
-        </div>
-        <div class="countdown-item" data-aos="zoom-in" data-aos-delay="400">
-          <div class="countdown-number" id="seconds">00</div>
-          <div class="countdown-label">Seconds</div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 32px;">
-        <p style="font-size: 1.25rem; color: #6B6B6B; font-style: italic;">Until our special day begins...</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Save the Date -->
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-          <svg class="heart-pulse" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            style="color: #D4AF37;">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-        </div>
-        <h2>Save the Date</h2>
-        <div class="section-underline"></div>
-        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px;">
-          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
-            style="color: #D4AF37;">
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
-            style="color: #D4AF37; animation-delay: 0.2s;">
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
-            style="color: #D4AF37; animation-delay: 0.4s;">
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
-            style="color: #D4AF37; animation-delay: 0.6s;">
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-          <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
-            style="color: #D4AF37; animation-delay: 0.8s;">
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-        </div>
-      </div>
-
-      <div class="image-grid" data-aos="fade-up">
-        <div class="image-card" data-aos="flip-left" data-aos-delay="100">
-          <img src="./Assets/SaveTheDate/Image1.png" alt="Couple">
-          <div class="image-overlay"></div>
-        </div>
-        <div class="image-card">
-          <img src="./Assets/SaveTheDate/Image2.png" alt="Couple">
-          <div class="image-overlay"></div>
-        </div>
-        <div class="image-card">
-          <img src="./Assets/SaveTheDate/Image3.png" alt="Couple">
-          <div class="image-overlay"></div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 64px;">
-        <p style="font-size: 1.875rem; color: #6B6B6B; margin-bottom: 8px;">February 21-23, 2026</p>
-        <p style="font-size: 1.25rem; color: #8B8B8B;">Three Days of Celebration</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(255, 248, 240, 0.5));">
-    <div class="container">
-      <div class="section-title">
-        <h2>Timeline</h2>
-        <div class="section-underline"></div>
-        <p class="section-subtitle">Join us in celebrating our special day</p>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item" data-aos="fade-right">
-          <div class="timeline-marker">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+    <!-- Countdown -->
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+            <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37;">
               <path
                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
           </div>
-          <div class="event-card">
-            <div class="event-image portrait">
-              <img src="./Assets/Timeline/FirstPic.png" alt="Reception">
-              <div class="event-image-overlay"></div>
-              <div class="event-image-content">
-                <h3 class="event-title">First Meet</h3>
-              </div>
-            </div>
-            <div class="event-details">
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Tuesday, Aug 18, 2017</p>
-                </div>
-              </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <div>
-                  <p class="event-detail-text">1st Year</p>
-                  <p class="event-detail-subtext">SECE class room</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2>Counting Down to Forever</h2>
         </div>
-        <div class="timeline-item" data-aos="fade-right">
-          <div class="timeline-marker">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
+
+        <div class="countdown-grid">
+          <div class="countdown-item" data-aos="zoom-in" data-aos-delay="100">
+            <div class="countdown-number" id="days">00</div>
+            <div class="countdown-label">Days</div>
           </div>
-          <div class="event-card">
-            <div class="event-image portrait">
-              <img src="./Assets/Timeline/FirstTour.png" alt="Reception" style="height: 124%;">
-              <div class="event-image-overlay"></div>
-              <div class="event-image-content">
-                <h3 class="event-title">First Tour</h3>
-              </div>
-            </div>
-            <div class="event-details">
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Friday, Oct 4, 2019</p>
-                </div>
-              </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Pine Forest</p>
-                  <p class="event-detail-subtext">Vagamon</p>
-                </div>
-              </div>
-            </div>
+          <div class="countdown-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="countdown-number" id="hours">00</div>
+            <div class="countdown-label">Hours</div>
           </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-right">
-          <div class="timeline-marker">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
+          <div class="countdown-item" data-aos="zoom-in" data-aos-delay="300">
+            <div class="countdown-number" id="minutes">00</div>
+            <div class="countdown-label">Minutes</div>
           </div>
-          <div class="event-card">
-            <div class="event-image">
-              <img src="./Assets/Timeline/Proposal.png" alt="Reception">
-              <div class="event-image-overlay"></div>
-              <div class="event-image-content">
-                <h3 class="event-title">Proposal</h3>
-              </div>
-            </div>
-            <div class="event-details">
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Sunday, Dec 15, 2024</p>
-                </div>
-              </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <div>
-                  <p class="event-detail-text">5:40 PM</p>
-                </div>
-              </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Amaneeswarar Temple</p>
-                  <p class="event-detail-subtext">Coimbatore</p>
-                </div>
-              </div>
-            </div>
+          <div class="countdown-item" data-aos="zoom-in" data-aos-delay="400">
+            <div class="countdown-number" id="seconds">00</div>
+            <div class="countdown-label">Seconds</div>
           </div>
         </div>
 
-        <div class="timeline-item" data-aos="fade-right">
-          <div class="timeline-marker">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <div style="text-align: center; margin-top: 32px;">
+          <p style="font-size: 1.25rem; color: #6B6B6B; font-style: italic;">Until our special day begins...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Save the Date -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+            <svg class="heart-pulse" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              style="color: #D4AF37;">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <h2>Save the Date</h2>
+          <div class="section-underline"></div>
+          <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px;">
+            <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37;">
               <path
                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
-          </div>
-          <div class="event-card">
-            <div class="event-image">
-              <img src="./Assets/Timeline/Engaged.png" alt="Reception">
-              <div class="event-image-overlay"></div>
-              <div class="event-image-content">
-                <h3 class="event-title">Officially Engaged</h3>
-              </div>
-            </div>
-            <div class="event-details">
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Sunday, Sept 7, 2025</p>
-                </div>
-              </div>
-
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Madhava Inn</p>
-                  <p class="event-detail-subtext">Pollachi</p>
-                </div>
-              </div>
-            </div>
+            <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37; animation-delay: 0.2s;">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37; animation-delay: 0.4s;">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37; animation-delay: 0.6s;">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="heart-blink" width="12" height="12" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37; animation-delay: 0.8s;">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
           </div>
         </div>
 
-        <!-- Event 1 -->
-        <div class="timeline-item future" data-aos="fade-right">
-          <div class="timeline-marker">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
+        <div class="image-grid" data-aos="fade-up">
+          <div class="image-card" data-aos="flip-left" data-aos-delay="100">
+            <img src="./Assets/SaveTheDate/Image1.png" alt="Couple">
+            <div class="image-overlay"></div>
           </div>
-          <div class="event-card future-event">
-            <div class="event-image">
-              <img src="./Assets/Timeline/Reception1.png" alt="Reception">
-              <div class="event-image-overlay"></div>
-              <div class="event-image-content">
-                <h3 class="event-title">Reception 1</h3>
-              </div>
-            </div>
-            <div class="event-details">
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Saturday, Feb 21, 2026</p>
-                </div>
-              </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <div>
-                  <p class="event-detail-text">7:00 PM</p>
-                </div>
-              </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Kumaragam Smart Venue</p>
-                  <p class="event-detail-subtext">Coimbatore</p>
-                </div>
-              </div>
-              <a href="https://maps.app.goo.gl/eizq6NUoupMdLVSL9" target="_blank" class="map-button">View on Map</a>
-            </div>
+          <div class="image-card">
+            <img src="./Assets/SaveTheDate/Image2.png" alt="Couple">
+            <div class="image-overlay"></div>
+          </div>
+          <div class="image-card">
+            <img src="./Assets/SaveTheDate/Image3.png" alt="Couple">
+            <div class="image-overlay"></div>
           </div>
         </div>
 
-        <!-- Event 2 -->
-        <div class="timeline-item future" data-aos="fade-left">
-          <div class="timeline-marker">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
-          </div>
-          <div class="event-card future-event">
-            <div class="event-image">
-              <img src="./Assets/Timeline/Muhurtham.png" alt="Muhurtham">
-              <div class="event-image-overlay"></div>
-              <div class="event-image-content">
-                <h3 class="event-title">Muhurtham</h3>
-                <span class="event-badge">Main Ceremony</span>
-              </div>
-            </div>
-            <div class="event-details">
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Sunday, Feb 22, 2026</p>
-                </div>
-              </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <div>
-                  <p class="event-detail-text">8:00 AM</p>
-                </div>
-              </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Amaneeswarar Temple</p>
-                  <p class="event-detail-subtext">Coimbatore</p>
-                </div>
-              </div>
-              <a href="https://maps.app.goo.gl/qCr1NZModu1QqcDR9" target="_blank" class="map-button">View on Map</a>
-            </div>
-          </div>
+        <div style="text-align: center; margin-top: 64px;">
+          <p style="font-size: 1.875rem; color: #6B6B6B; margin-bottom: 8px;">February 21-23, 2026</p>
+          <p style="font-size: 1.25rem; color: #8B8B8B;">Three Days of Celebration</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(255, 248, 240, 0.5));">
+      <div class="container">
+        <div class="section-title">
+          <h2>Timeline</h2>
+          <div class="section-underline"></div>
+          <p class="section-subtitle">Join us in celebrating our special day</p>
         </div>
 
-        <!-- Event 3 -->
-        <div class="timeline-item future" data-aos="fade-right">
-          <div class="timeline-marker">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
-          </div>
-          <div class="event-card future-event">
-            <div class="event-image">
-              <img src="./Assets/Timeline/Reception2.png" alt="Reception">
-              <div class="event-image-overlay"></div>
-              <div class="event-image-content">
-                <h3 class="event-title">Reception 2</h3>
+        <div class="timeline">
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-marker">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <div class="event-card">
+              <div class="event-image portrait">
+                <img src="./Assets/Timeline/FirstPic.png" alt="Reception">
+                <div class="event-image-overlay"></div>
+                <div class="event-image-content">
+                  <h3 class="event-title">First Meet</h3>
+                </div>
+              </div>
+              <div class="event-details">
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Tuesday, Aug 18, 2017</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">1st Year</p>
+                    <p class="event-detail-subtext">SECE class room</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="event-details">
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Monday, Feb 23, 2026</p>
+          </div>
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-marker">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <div class="event-card">
+              <div class="event-image portrait">
+                <img src="./Assets/Timeline/FirstTour.png" alt="Reception" style="height: 124%;">
+                <div class="event-image-overlay"></div>
+                <div class="event-image-content">
+                  <h3 class="event-title">First Tour</h3>
                 </div>
               </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <div>
-                  <p class="event-detail-text">6:00 PM</p>
+              <div class="event-details">
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Friday, Oct 4, 2019</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Pine Forest</p>
+                    <p class="event-detail-subtext">Vagamon</p>
+                  </div>
                 </div>
               </div>
-              <div class="event-detail-item">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <div>
-                  <p class="event-detail-text">Sri Murugan Thirumana Mandapam</p>
-                  <p class="event-detail-subtext">Coimbatore</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-marker">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <div class="event-card">
+              <div class="event-image">
+                <img src="./Assets/Timeline/Proposal.png" alt="Reception">
+                <div class="event-image-overlay"></div>
+                <div class="event-image-content">
+                  <h3 class="event-title">Proposal</h3>
                 </div>
               </div>
-              <a href="https://maps.app.goo.gl/SwTUzy5sFWki5jg2A" target="_blank" class="map-button">View on Map</a>
+              <div class="event-details">
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Sunday, Dec 15, 2024</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">5:40 PM</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Amaneeswarar Temple</p>
+                    <p class="event-detail-subtext">Coimbatore</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-marker">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <div class="event-card">
+              <div class="event-image">
+                <img src="./Assets/Timeline/Engaged.png" alt="Reception">
+                <div class="event-image-overlay"></div>
+                <div class="event-image-content">
+                  <h3 class="event-title">Officially Engaged</h3>
+                </div>
+              </div>
+              <div class="event-details">
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Sunday, Sept 7, 2025</p>
+                  </div>
+                </div>
+
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Madhava Inn</p>
+                    <p class="event-detail-subtext">Pollachi</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 1 -->
+          <div class="timeline-item future" data-aos="fade-right">
+            <div class="timeline-marker">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <div class="event-card future-event">
+              <div class="event-image">
+                <img src="./Assets/Timeline/Reception1.png" alt="Reception">
+                <div class="event-image-overlay"></div>
+                <div class="event-image-content">
+                  <h3 class="event-title">Reception 1</h3>
+                </div>
+              </div>
+              <div class="event-details">
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Saturday, Feb 21, 2026</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">7:00 PM</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Kumaragam Smart Venue</p>
+                    <p class="event-detail-subtext">Coimbatore</p>
+                  </div>
+                </div>
+                <a href="https://maps.app.goo.gl/eizq6NUoupMdLVSL9" target="_blank" class="map-button">View on Map</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="timeline-item future" data-aos="fade-left">
+            <div class="timeline-marker">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <div class="event-card future-event">
+              <div class="event-image">
+                <img src="./Assets/Timeline/Muhurtham.png" alt="Muhurtham">
+                <div class="event-image-overlay"></div>
+                <div class="event-image-content">
+                  <h3 class="event-title">Muhurtham</h3>
+                  <span class="event-badge">Main Ceremony</span>
+                </div>
+              </div>
+              <div class="event-details">
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Sunday, Feb 22, 2026</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">8:00 AM</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Amaneeswarar Temple</p>
+                    <p class="event-detail-subtext">Coimbatore</p>
+                  </div>
+                </div>
+                <a href="https://maps.app.goo.gl/qCr1NZModu1QqcDR9" target="_blank" class="map-button">View on Map</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="timeline-item future" data-aos="fade-right">
+            <div class="timeline-marker">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <div class="event-card future-event">
+              <div class="event-image">
+                <img src="./Assets/Timeline/Reception2.png" alt="Reception">
+                <div class="event-image-overlay"></div>
+                <div class="event-image-content">
+                  <h3 class="event-title">Reception 2</h3>
+                </div>
+              </div>
+              <div class="event-details">
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Monday, Feb 23, 2026</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">6:00 PM</p>
+                  </div>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <p class="event-detail-text">Sri Murugan Thirumana Mandapam</p>
+                    <p class="event-detail-subtext">Coimbatore</p>
+                  </div>
+                </div>
+                <a href="https://maps.app.goo.gl/SwTUzy5sFWki5jg2A" target="_blank" class="map-button">View on Map</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Gallery -->
-  <section class="section" style="background: linear-gradient(to bottom, rgba(255, 248, 240, 0.5), transparent);">
-    <div class="container">
-      <div class="section-title">
-        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-          <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
-            style="color: #D4AF37;">
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
+    <!-- Gallery -->
+    <section class="section" style="background: linear-gradient(to bottom, rgba(255, 248, 240, 0.5), transparent);">
+      <div class="container">
+        <div class="section-title">
+          <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+            <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37;">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <h2>Gallery of Love</h2>
+          <div class="section-underline"></div>
+          <p class="section-subtitle">Capturing precious moments of our journey together</p>
         </div>
-        <h2>Gallery of Love</h2>
-        <div class="section-underline"></div>
-        <p class="section-subtitle">Capturing precious moments of our journey together</p>
+
+        <div class="gallery-grid" id="gallery">
+          <!-- L1 -->
+          <div class="gallery-item landscape" onclick="openLightbox(0)">
+            <img src="./Assets/Gallery/L1.jpg" alt="Gallery 1">
+            <div class="image-overlay"></div>
+          </div>
+          <!-- P1 -->
+          <div class="gallery-item portrait" onclick="openLightbox(1)">
+            <img src="./Assets/Gallery/P1.jpg" alt="Gallery 2">
+            <div class="image-overlay"></div>
+          </div>
+          <!-- L2 -->
+          <div class="gallery-item landscape" onclick="openLightbox(2)">
+            <img src="./Assets/Gallery/L2.jpg" alt="Gallery 3">
+            <div class="image-overlay"></div>
+          </div>
+          <!-- P2 -->
+          <div class="gallery-item portrait" onclick="openLightbox(3)">
+            <img src="./Assets/Gallery/P2.jpg" alt="Gallery 4">
+            <div class="image-overlay"></div>
+          </div>
+          <!-- P3 -->
+          <div class="gallery-item portrait" onclick="openLightbox(4)">
+            <img src="./Assets/Gallery/P3.jpg" alt="Gallery 5">
+            <div class="image-overlay"></div>
+          </div>
+          <!-- L3 -->
+          <div class="gallery-item landscape" onclick="openLightbox(5)">
+            <img src="./Assets/Gallery/L3.jpg" alt="Gallery 6">
+            <div class="image-overlay"></div>
+          </div>
+          <!-- L4 -->
+          <div class="gallery-item landscape" onclick="openLightbox(6)">
+            <img src="./Assets/Gallery/L4.JPG" alt="Gallery 7">
+            <div class="image-overlay"></div>
+          </div>
+          <!-- P4 -->
+          <div class="gallery-item portrait" onclick="openLightbox(7)">
+            <img src="./Assets/Gallery/P4.jpg" alt="Gallery 8">
+            <div class="image-overlay"></div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="gallery-grid" id="gallery">
-        <!-- L1 -->
-        <div class="gallery-item landscape" onclick="openLightbox(0)">
-          <img src="./Assets/Gallery/L1.jpg" alt="Gallery 1">
-          <div class="image-overlay"></div>
+
+    <!-- RSVP -->
+    <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(255, 248, 240, 0.5));">
+      <div class="container">
+        <div class="section-title">
+          <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+            <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37;">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <h2>RSVP</h2>
+          <div class="section-underline"></div>
+          <p class="section-subtitle">Please let us know if you'll be joining us</p>
         </div>
-        <!-- P1 -->
-        <div class="gallery-item portrait" onclick="openLightbox(1)">
-          <img src="./Assets/Gallery/P1.jpg" alt="Gallery 2">
-          <div class="image-overlay"></div>
-        </div>
-        <!-- L2 -->
-        <div class="gallery-item landscape" onclick="openLightbox(2)">
-          <img src="./Assets/Gallery/L2.jpg" alt="Gallery 3">
-          <div class="image-overlay"></div>
-        </div>
-        <!-- P2 -->
-        <div class="gallery-item portrait" onclick="openLightbox(3)">
-          <img src="./Assets/Gallery/P2.jpg" alt="Gallery 4">
-          <div class="image-overlay"></div>
-        </div>
-        <!-- P3 -->
-        <div class="gallery-item portrait" onclick="openLightbox(4)">
-          <img src="./Assets/Gallery/P3.jpg" alt="Gallery 5">
-          <div class="image-overlay"></div>
-        </div>
-        <!-- L3 -->
-        <div class="gallery-item landscape" onclick="openLightbox(5)">
-          <img src="./Assets/Gallery/L3.jpg" alt="Gallery 6">
-          <div class="image-overlay"></div>
-        </div>
-        <!-- L4 -->
-        <div class="gallery-item landscape" onclick="openLightbox(6)">
-          <img src="./Assets/Gallery/L4.JPG" alt="Gallery 7">
-          <div class="image-overlay"></div>
-        </div>
-        <!-- P4 -->
-        <div class="gallery-item portrait" onclick="openLightbox(7)">
-          <img src="./Assets/Gallery/P4.jpg" alt="Gallery 8">
-          <div class="image-overlay"></div>
+
+        <div class="rsvp-form" data-aos="zoom-in-up"
+          style="display: flex; justify-content: center; overflow: hidden; padding: 0;">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfCMnbWDzpOk3F1prYZVSYn0Dn3Ju8EDbFpf8osQn6aWGEAcg/viewform?embedded=true"
+            width="640" height="960" frameborder="0" marginheight="0" marginwidth="0"
+            style="max-width: 100%;">Loading…</iframe>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- RSVP -->
-  <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(255, 248, 240, 0.5));">
-    <div class="container">
-      <div class="section-title">
-        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-          <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
-            style="color: #D4AF37;">
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-        </div>
-        <h2>RSVP</h2>
-        <div class="section-underline"></div>
-        <p class="section-subtitle">Please let us know if you'll be joining us</p>
-      </div>
-
-      <div class="rsvp-form" data-aos="zoom-in-up"
-        style="display: flex; justify-content: center; overflow: hidden; padding: 0;">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfCMnbWDzpOk3F1prYZVSYn0Dn3Ju8EDbFpf8osQn6aWGEAcg/viewform?embedded=true"
-          width="640" height="960" frameborder="0" marginheight="0" marginwidth="0"
-          style="max-width: 100%;">Loading…</iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-wave">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          class="shape-fill"></path>
-      </svg>
-    </div>
-
-    <div class="container footer-content">
-      <div class="footer-logo">
-        <span class="initial">R</span>
-        <svg class="heart-pulse footer-heart-icon" viewBox="0 0 24 24" fill="currentColor">
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-wave">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
-            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill"></path>
         </svg>
-        <span class="initial">P</span>
       </div>
 
-      <div class="footer-message">
-        <h3>We Can't Wait to Celebrate With You!</h3>
-        <p>Your presence is the greatest gift we could ask for</p>
+      <div class="container footer-content">
+        <div class="footer-logo">
+          <span class="initial">R</span>
+          <svg class="heart-pulse footer-heart-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <span class="initial">P</span>
+        </div>
+
+        <div class="footer-message">
+          <h3>We Can't Wait to Celebrate With You!</h3>
+          <p>Your presence is the greatest gift we could ask for</p>
+        </div>
+
+        <div class="footer-details">
+          <div class="footer-couple">Ragul ❤ Priyadharsini</div>
+          <div class="footer-date-loc">February 21-23, 2026 • Coimbatore, India</div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-thankyou">
+          <p>With love and gratitude</p>
+        </div>
+
+        <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+          </svg>
+        </button>
       </div>
+    </footer>
 
-      <div class="footer-details">
-        <div class="footer-couple">Ragul ❤ Priyadharsini</div>
-        <div class="footer-date-loc">February 21-23, 2026 • Coimbatore, India</div>
-      </div>
-
-      <div class="footer-divider"></div>
-
-      <div class="footer-thankyou">
-        <p>With love and gratitude</p>
-      </div>
-
-      <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-        </svg>
-      </button>
-    </div>
-  </footer>
+  </main> <!-- End page-content -->
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -2106,8 +2135,16 @@
         enterBtn.addEventListener('click', () => {
           loaderOverlay.classList.add('hidden');
           setTimeout(() => {
-            loaderOverlay.style.display = 'none';
-            // Initialize AOS now that loader is gone
+            // Remove loader from DOM entirely
+            loaderOverlay.remove();
+
+            // Show page content
+            const pageContent = document.getElementById('page-content');
+            if (pageContent) {
+              pageContent.style.display = 'block';
+            }
+
+            // Initialize AOS now that content is visible
             if (typeof AOS !== 'undefined') {
               AOS.init({
                 duration: 1000,
