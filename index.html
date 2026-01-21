@@ -930,10 +930,13 @@
       z-index: 99999;
       display: grid;
       grid-template-rows: 2fr 1fr;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
       transition: opacity 0.8s ease, visibility 0.8s;
-      overflow-x: hidden;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      /* Prevent any scroll */
     }
 
     .loader-overlay.hidden {
@@ -945,8 +948,8 @@
       width: 100%;
       max-width: 400px;
       padding: 20px;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
       gap: 15px;
     }
 
@@ -972,32 +975,41 @@
     }
 
     .typing-indicator {
-      display: none;
+      display: inline-flex;
+      /* Always in layout */
+      visibility: hidden;
       /* Hidden by default */
       align-items: center;
       gap: 4px;
-      padding: 16px 24px;
+      padding: 10px 16px;
       background: var(--white);
       border-radius: 20px;
       border-bottom-left-radius: 4px;
       box-shadow: var(--shadow-soft);
       align-self: flex-start;
       opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.3s ease, width 0.3s ease, background 0.3s;
+      transition: opacity 0.3s ease;
+      width: auto;
+      /* Let content define width */
+      min-height: 38px;
+      /* Stable height */
+    }
+
+    .typing-indicator.visible {
+      visibility: visible;
+      opacity: 1;
     }
 
     /* Ended State: Center with lines and text */
     .typing-indicator.ended {
+      align-self: center;
       background: transparent;
       box-shadow: none;
       padding: 8px 0;
       width: 100%;
       justify-content: center;
       gap: 12px;
-      margin-top: 10px;
-      min-height: 40px;
-      /* Fixed height to prevent jump */
+      min-height: 38px;
     }
 
     .typing-indicator.ended .typing-dot {
@@ -1023,9 +1035,7 @@
       max-width: 50px;
     }
 
-    .typing-indicator.visible {
-      opacity: 1;
-    }
+
 
     .typing-dot {
       width: 6px;
@@ -1096,7 +1106,6 @@
       justify-content: center;
       gap: 20px;
       width: 100vw;
-      max-width: 800px;
       height: min(450px, 80vh);
       /* Responsive fixed height */
       padding: 0 20px;
@@ -1158,7 +1167,7 @@
       justify-content: flex-end;
       /* Messages stack from bottom */
       gap: 10px;
-      max-width: 450px;
+      width: 70vw;
       max-height: 280px;
       /* Fixed max height */
       position: relative;
@@ -1178,12 +1187,13 @@
 
     @media (max-width: 768px) {
       .loader-content-wrapper {
-        gap: 10px;
-        /* align-items: center; */
-        /* Center - stable position */
-        height: 360px;
-        padding: 0 10px 60px 10px;
-        /* Reduced padding sides, keep bottom space */
+        gap: 8px;
+        align-items: center;
+        /* Keep stable */
+        height: 320px;
+        /* Fixed height, no shifting */
+        padding: 0 8px;
+        width: 100vw;
       }
 
       .loader-image-side {
@@ -1196,14 +1206,22 @@
       }
 
       .loader-chat-side {
-        max-height: 220px;
+        width: 30%;
+        /* Fit within mobile viewport */
+        max-height: 200px;
         /* Smaller for mobile */
       }
 
       .loader-enter-btn {
+        position: fixed;
+        /* Fixed to viewport */
+        bottom: 20px;
+        /* Closer to bottom edge */
+        left: 50%;
         padding: 10px 25px;
-        font-size: 1rem;
-        width: 90%;
+        font-size: 0.95rem;
+        width: auto;
+        max-width: 80%;
       }
     }
 
@@ -1239,7 +1257,7 @@
     <button id="enter-site-btn" class="loader-enter-btn">Show me the Magic! ✨</button>
   </div>
   <!-- Floating Hearts -->
-  <div class="floating-hearts" id="floatingHearts"></div>
+  <!-- <div class="floating-hearts" id="floatingHearts"></div> -->
 
   <!-- Header -->
   <header class="header">
@@ -1943,18 +1961,8 @@
     // RSVP Form logic removed as it's replaced by Google Forms iframe
 
 
-    // Initialize
+    // Initialize - defer AOS until loader dismissed
     window.addEventListener('load', function () {
-      setTimeout(() => {
-        AOS.init({
-          duration: 1000,
-          once: true,
-          offset: 100,
-          easing: 'ease-out-cubic'
-        });
-        AOS.refresh();
-      }, 100);
-
       createFloatingHearts();
       updateCountdown();
       setInterval(updateCountdown, 1000);
@@ -2061,22 +2069,14 @@
       };
 
       const showTyping = () => {
-        chatContainer.appendChild(typingIndicator);
-        typingIndicator.style.display = 'inline-flex';
-        typingIndicator.style.visibility = 'visible';
-        void typingIndicator.offsetWidth;
         typingIndicator.classList.add('visible');
       };
 
       const hideTyping = () => {
         typingIndicator.classList.remove('visible');
-        setTimeout(() => {
-          // Use visibility to preserve layout space
-          if (!typingIndicator.classList.contains('ended')) {
-            typingIndicator.style.visibility = 'hidden';
-          }
-        }, 300);
       };
+
+
 
       const addMessage = async (text) => {
         const bubble = createBubble(text);
@@ -2107,8 +2107,15 @@
           loaderOverlay.classList.add('hidden');
           setTimeout(() => {
             loaderOverlay.style.display = 'none';
-            // Trigger animations that might have been waiting
-            if (typeof AOS !== 'undefined') AOS.refresh();
+            // Initialize AOS now that loader is gone
+            if (typeof AOS !== 'undefined') {
+              AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100,
+                easing: 'ease-out-cubic'
+              });
+            }
           }, 800);
         });
       };
