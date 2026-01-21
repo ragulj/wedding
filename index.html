@@ -921,10 +921,323 @@
         height: 300px;
       }
     }
+
+    /* Loader/Chat Overlay */
+    .loader-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-cream);
+      z-index: 99999;
+      display: grid;
+      grid-template-rows: 2fr 1fr;
+      align-items: flex-end;
+      justify-content: center;
+      transition: opacity 0.8s ease, visibility 0.8s;
+      overflow-x: hidden;
+    }
+
+    .loader-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-chat-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .chat-bubble {
+      background: var(--white);
+      padding: 15px 20px;
+      border-radius: 20px;
+      border-bottom-left-radius: 4px;
+      box-shadow: var(--shadow-soft);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: var(--text-dark);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      align-self: flex-start;
+      margin-right: 20%;
+    }
+
+    .chat-bubble.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .typing-indicator {
+      display: none;
+      /* Hidden by default */
+      align-items: center;
+      gap: 4px;
+      padding: 16px 24px;
+      background: var(--white);
+      border-radius: 20px;
+      border-bottom-left-radius: 4px;
+      box-shadow: var(--shadow-soft);
+      align-self: flex-start;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, width 0.3s ease, background 0.3s;
+    }
+
+    /* Ended State: Center with lines and text */
+    .typing-indicator.ended {
+      background: transparent;
+      box-shadow: none;
+      padding: 8px 0;
+      width: 100%;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+      min-height: 40px;
+      /* Fixed height to prevent jump */
+    }
+
+    .typing-indicator.ended .typing-dot {
+      display: none;
+      /* Hide the dots */
+    }
+
+    .typing-indicator.ended::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background: rgba(212, 175, 55, 0.3);
+      flex: 1;
+      max-width: 50px;
+    }
+
+    .typing-indicator.ended::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: rgba(212, 175, 55, 0.3);
+      flex: 1;
+      max-width: 50px;
+    }
+
+    .typing-indicator.visible {
+      opacity: 1;
+    }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--primary-gold);
+      border-radius: 50%;
+      animation: typing-bounce 1.4s infinite ease-in-out both;
+    }
+
+    .typing-dot:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    @keyframes typing-bounce {
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0);
+      }
+
+      40% {
+        transform: scale(1);
+      }
+    }
+
+    .loader-enter-btn {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      padding: 14px 40px;
+      background: var(--primary-gold);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: all 0.5s ease;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .loader-enter-btn.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .loader-enter-btn:hover {
+      background: #B8941F;
+      transform: translateX(-50%) translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Split Layout for Loader */
+    .loader-content-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      /* Center vertically - stable position */
+      justify-content: center;
+      gap: 20px;
+      width: 100vw;
+      max-width: 800px;
+      height: min(450px, 80vh);
+      /* Responsive fixed height */
+      padding: 0 20px;
+    }
+
+    .loader-image-side {
+      flex: 0 0 auto;
+      width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader-character-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+      transform-origin: bottom center;
+    }
+
+    /* Animation Classes */
+    .loader-character-img.pop-in {
+      animation: char-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    .loader-character-img.pop-out {
+      animation: char-pop-out 0.3s ease-in both;
+    }
+
+    @keyframes char-pop-in {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes char-pop-out {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    .loader-chat-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      /* Messages stack from bottom */
+      gap: 10px;
+      max-width: 450px;
+      max-height: 280px;
+      /* Fixed max height */
+      position: relative;
+    }
+
+    .loader-chat-container {
+      width: 100%;
+      padding: 0;
+    }
+
+    .chat-bubble {
+      margin-right: 0;
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 768px) {
+      .loader-content-wrapper {
+        gap: 10px;
+        /* align-items: center; */
+        /* Center - stable position */
+        height: 360px;
+        padding: 0 10px 60px 10px;
+        /* Reduced padding sides, keep bottom space */
+      }
+
+      .loader-image-side {
+        width: 100px;
+      }
+
+      .chat-bubble {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+      }
+
+      .loader-chat-side {
+        max-height: 220px;
+        /* Smaller for mobile */
+      }
+
+      .loader-enter-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+        width: 90%;
+      }
+    }
+
+    .chat-bubble.image-bubble {
+      padding: 10px;
+      background: transparent;
+      box-shadow: none;
+    }
   </style>
 </head>
 
 <body>
+  <!-- Loader Overlay -->
+  <div id="loader-overlay" class="loader-overlay">
+    <div class="loader-content-wrapper">
+      <!-- Left Side: Character Image -->
+      <div class="loader-image-side">
+        <img id="loader-character-img" class="loader-character-img" src="./Assets/Chat/hello.png" alt="Character">
+      </div>
+
+      <!-- Right Side: Chat -->
+      <div class="loader-chat-side" id="chat-container">
+        <!-- Messages appended here -->
+        <div id="typing-indicator" class="typing-indicator">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button (Absolute bottom) -->
+    <button id="enter-site-btn" class="loader-enter-btn">Show me the Magic! ✨</button>
+  </div>
   <!-- Floating Hearts -->
   <div class="floating-hearts" id="floatingHearts"></div>
 
@@ -1645,6 +1958,162 @@
       createFloatingHearts();
       updateCountdown();
       setInterval(updateCountdown, 1000);
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const chatContainer = document.getElementById('chat-container');
+      const typingIndicator = document.getElementById('typing-indicator');
+      const loaderOverlay = document.getElementById('loader-overlay');
+      let isLoaded = false;
+
+      window.addEventListener('load', () => {
+        isLoaded = true;
+      });
+
+      const messages = [
+        "Hey! You made it! 🥳",
+        "Hang on, just adding some extra sparkle... ✨",
+        "And... making sure the groom shows up on time! 🏃‍♂️💨"
+      ];
+
+      const charImg = document.getElementById('loader-character-img');
+
+      // Helper to create bubble
+      const createBubble = (text) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble';
+        // bubble.textContent = text; // Will be typed
+        return bubble;
+      };
+
+      const typeText = async (element, text) => {
+        element.textContent = '';
+        const chars = [...text];
+        for (const char of chars) {
+          element.textContent += char;
+          await new Promise(r => setTimeout(r, 30 + Math.random() * 20));
+        }
+      };
+
+      const runSequence = async () => {
+        const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        // Initial state
+        if (charImg) charImg.classList.add('pop-in');
+
+        // Step 1: Wait & Show Typing
+        await wait(500);
+        showTyping();
+
+        // Step 2: Show Msg 1 (Greeting) - hello.png is already default
+        await wait(1200);
+        hideTyping();
+        await addMessage(messages[0]);
+
+        // Step 3: Wait & Typing
+        await wait(1000);
+        showTyping();
+        await wait(1500);
+
+        // Step 4: Show Msg 2. SWAP IMAGE HERE to invite.png
+        // "for second then replace with invite.png"
+        hideTyping();
+
+        // Image Transition
+        if (charImg) {
+          charImg.classList.remove('pop-in');
+          charImg.classList.add('pop-out');
+
+          setTimeout(() => {
+            charImg.src = './Assets/Chat/invite.png';
+            charImg.classList.remove('pop-out');
+            void charImg.offsetWidth; // trigger reflow
+            charImg.classList.add('pop-in');
+          }, 300);
+        }
+        await wait(300); // small sync wait
+
+        await addMessage(messages[1]);
+
+        // Step 5: Wait & Typing
+        await wait(1000);
+        showTyping();
+        await wait(1500);
+
+        // Step 6: Show Msg 3
+        hideTyping();
+        await addMessage(messages[2]);
+
+        // Show typing indicator again for "ended" state
+        await wait(500);
+        showTyping();
+
+        // Add special class for the ending look (lines)
+        const indicator = document.getElementById('typing-indicator');
+        if (indicator) {
+          indicator.classList.add('ended');
+          indicator.innerHTML = '<span style="color: var(--primary-gold); font-size: 0.85rem; font-weight: 500;">Ready! ✨</span>';
+        }
+
+        // Now wait for load
+        checkLoad();
+      };
+
+      const showTyping = () => {
+        chatContainer.appendChild(typingIndicator);
+        typingIndicator.style.display = 'inline-flex';
+        typingIndicator.style.visibility = 'visible';
+        void typingIndicator.offsetWidth;
+        typingIndicator.classList.add('visible');
+      };
+
+      const hideTyping = () => {
+        typingIndicator.classList.remove('visible');
+        setTimeout(() => {
+          // Use visibility to preserve layout space
+          if (!typingIndicator.classList.contains('ended')) {
+            typingIndicator.style.visibility = 'hidden';
+          }
+        }, 300);
+      };
+
+      const addMessage = async (text) => {
+        const bubble = createBubble(text);
+        // Insert before typing indicator
+        chatContainer.insertBefore(bubble, typingIndicator);
+        void bubble.offsetWidth;
+        bubble.classList.add('visible');
+        await typeText(bubble, text);
+      };
+
+      const checkLoad = async () => {
+        const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        // Wait until window is loaded
+        while (!isLoaded) {
+          await wait(200);
+        }
+
+        // Once loaded and sequence finished, wait a bit
+        await wait(800);
+
+        // Show the enter button
+        const enterBtn = document.getElementById('enter-site-btn');
+        enterBtn.classList.add('visible');
+
+        // Add click listener
+        enterBtn.addEventListener('click', () => {
+          loaderOverlay.classList.add('hidden');
+          setTimeout(() => {
+            loaderOverlay.style.display = 'none';
+            // Trigger animations that might have been waiting
+            if (typeof AOS !== 'undefined') AOS.refresh();
+          }, 800);
+        });
+      };
+
+      runSequence();
     });
   </script>
 </body>
