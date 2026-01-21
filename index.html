@@ -1900,26 +1900,7 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // AOS.init removed from here due to potential race conditions with load event
 
-
-    // Floating Hearts
-    function createFloatingHearts() {
-      const container = document.getElementById('floatingHearts');
-      const heartSVG = '<svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
-
-      for (let i = 0; i < 15; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'floating-heart';
-        heart.innerHTML = heartSVG;
-        heart.style.left = Math.random() * 100 + '%';
-        heart.style.width = (20 + Math.random() * 20) + 'px';
-        heart.style.height = (20 + Math.random() * 20) + 'px';
-        heart.style.animationDelay = Math.random() * 5 + 's';
-        heart.style.animationDuration = (10 + Math.random() * 10) + 's';
-        container.appendChild(heart);
-      }
-    }
 
     // Countdown Timer
     function updateCountdown() {
@@ -1927,16 +1908,21 @@
       const now = new Date().getTime();
       const distance = weddingDate - now;
 
-      if (distance > 0) {
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      if (distance > 0 && daysEl && hoursEl && minutesEl && secondsEl) {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById('days').textContent = String(days).padStart(2, '0');
-        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
       }
     }
 
@@ -1992,7 +1978,6 @@
 
     // Initialize - defer AOS until loader dismissed
     window.addEventListener('load', function () {
-      createFloatingHearts();
       updateCountdown();
       setInterval(updateCountdown, 1000);
     });
