@@ -997,6 +997,12 @@
       transform: translateY(0);
     }
 
+    .chat-bubble.highlighted {
+      background: linear-gradient(135deg, #FFF8E7 0%, #FFF5DC 100%);
+      border: 2px solid var(--primary-gold);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+    }
+
     .typing-indicator {
       display: inline-flex;
       /* Always in layout */
@@ -1993,19 +1999,37 @@
         isLoaded = true;
       });
 
+      // Get gender from query params (?g=m or ?g=f)
+      const urlParams = new URLSearchParams(window.location.search);
+      const gender = urlParams.get('g');
+
+      // Gender-specific dress code message
+      let dressCodeMsg = "Oh, and don't forget... traditional attire for Sunday! 👗🥻";
+      if (gender === 'm') {
+        dressCodeMsg = "Psst! Looking handsome in Dhoti & Shirt for Sunday, yeah? 🤵✨";
+      } else if (gender === 'f') {
+        dressCodeMsg = "Psst! Can't wait to see you gorgeous in a Saree on Sunday! 💃🥻✨";
+      }
+
       const messages = [
         "Hey! You made it! 🥳",
         "Hang on, just adding some extra sparkle... ✨",
-        "And... making sure the groom shows up on time! 🏃‍♂️💨"
+        "And... making sure the groom shows up on time! 🏃‍♂️💨",
+        dressCodeMsg // Highlighted message
       ];
+
+      // Track which message is the special highlighted one
+      const highlightedMsgIndex = 3;
 
       const charImg = document.getElementById('loader-character-img');
 
       // Helper to create bubble
-      const createBubble = (text) => {
+      const createBubble = (text, isHighlighted = false) => {
         const bubble = document.createElement('div');
         bubble.className = 'chat-bubble';
-        // bubble.textContent = text; // Will be typed
+        if (isHighlighted) {
+          bubble.classList.add('highlighted');
+        }
         return bubble;
       };
 
@@ -2067,6 +2091,15 @@
         hideTyping();
         await addMessage(messages[2]);
 
+        // Step 7: Wait & Typing for Dress Code
+        await wait(1000);
+        showTyping();
+        await wait(1500);
+
+        // Step 8: Show Msg 4 (Dress Code - Highlighted!)
+        hideTyping();
+        await addMessage(messages[3], true); // true = highlighted
+
         // Show typing indicator again for "ended" state
         await wait(500);
         showTyping();
@@ -2092,8 +2125,8 @@
 
 
 
-      const addMessage = async (text) => {
-        const bubble = createBubble(text);
+      const addMessage = async (text, isHighlighted = false) => {
+        const bubble = createBubble(text, isHighlighted);
         // Insert before typing indicator
         chatContainer.insertBefore(bubble, typingIndicator);
         void bubble.offsetWidth;
