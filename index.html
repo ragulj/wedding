@@ -645,6 +645,37 @@
       box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
     }
 
+    /* Video Section */
+    .video-link-wrapper {
+      text-align: center;
+    }
+
+    .youtube-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: #FF0000;
+      color: white;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .youtube-btn:hover {
+      background-color: #CC0000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    }
+
+    .video-wrapper {
+      /* Removed iframe wrapper styles */
+      display: none;
+    }
+
     /* Gallery */
     .gallery-grid {
       display: grid;
@@ -1301,7 +1332,7 @@
 
       <div class="header-content">
 
-        <h1>Ragul</h1>
+        <h1>Priyadharsini</h1>
 
         <div class="header-divider">
           <div class="header-line"></div>
@@ -1317,7 +1348,7 @@
           <div class="header-line"></div>
         </div>
 
-        <h1>Priyadharsini</h1>
+        <h1>Ragul</h1>
 
         <p class="header-subtitle">WE'RE GETTING MARRIED</p>
       </div>
@@ -1832,6 +1863,35 @@
     </section>
 
 
+    <!-- Video Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+            <svg class="heart-pulse" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"
+              style="color: #D4AF37;">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <h2>Our Story</h2>
+          <div class="section-underline"></div>
+          <p class="section-subtitle">Watch our journey together</p>
+        </div>
+
+        <div class="video-link-wrapper" data-aos="zoom-in"
+          style="display: flex; justify-content: center; margin-top: 20px;">
+          <a href="https://www.youtube.com/watch?v=mtojbDu6OPY" target="_blank" class="youtube-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 10px;">
+              <path
+                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+            </svg>
+            Watch our Story on YouTube
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- RSVP -->
     <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(255, 248, 240, 0.5));">
       <div class="container">
@@ -1910,7 +1970,7 @@
 
     // Countdown Timer
     function updateCountdown() {
-      const weddingDate = new Date('2026-02-21T19:00:00').getTime();
+      const weddingDate = new Date('2026-02-22T08:00:00').getTime();
       const now = new Date().getTime();
       const distance = weddingDate - now;
 
@@ -2004,11 +2064,13 @@
       const gender = urlParams.get('g');
 
       // Gender-specific dress code message
-      let dressCodeMsg = "Oh, and don't forget... traditional attire for Sunday! 👗🥻";
+      let dressCodeMsg = "One small request... could you grace us in traditional attire for Sunday? 👗🥻";
       if (gender === 'm') {
-        dressCodeMsg = "Psst! Looking handsome in Dhoti & Shirt for Sunday, yeah? 🤵✨";
+        dressCodeMsg = "Please join us in Dhoti & Shirt for Sunday, let's keep it traditional! 🤵✨";
       } else if (gender === 'f') {
-        dressCodeMsg = "Psst! Can't wait to see you gorgeous in a Saree on Sunday! 💃🥻✨";
+        dressCodeMsg = "please grace the Sunday function in a Saree! It would look lovely! 💃🥻✨";
+      } else if (gender === 'c') {
+        dressCodeMsg = "A special request for you two... please come in Saree & Dhoti for Sunday! 👩🏻‍❤️‍👨🏻 ✨";
       }
 
       const messages = [
