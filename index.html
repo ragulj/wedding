@@ -2073,15 +2073,26 @@
         dressCodeMsg = "A special request for you two... please come in Saree & Dhoti for Sunday! 👩🏻‍❤️‍👨🏻 ✨";
       }
 
-      const messages = [
+      // Mandatory messages shown first
+      const mandatoryStart = [
         "Hey! You made it! 🥳",
-        "Hang on, just adding some extra sparkle... ✨",
-        "And... making sure the groom shows up on time! 🏃‍♂️💨",
-        dressCodeMsg // Highlighted message
+        "Hang on, just adding some extra sparkle... ✨"
       ];
 
-      // Track which message is the special highlighted one
-      const highlightedMsgIndex = 3;
+      // Filler messages shown while loading
+      const fillerMessages = [
+        "Checking the guest list... 📋",
+        "Polishing the silverware... 🍽️",
+        "Tuning the Nadaswaram... 🎺",
+        "Arranging the flowers... 🌸",
+        "And... making sure the groom shows up on time! 🏃‍♂️💨",
+        "Loading the love... ❤️",
+        "Finalizing the playlist... 🎵",
+        "Getting the confetti ready... 🎉"
+      ];
+
+      // Dress code message (always shown last)
+      // dressCodeMsg is already defined above
 
       const charImg = document.getElementById('loader-character-img');
 
@@ -2100,7 +2111,7 @@
         const chars = [...text];
         for (const char of chars) {
           element.textContent += char;
-          await new Promise(r => setTimeout(r, 30 + Math.random() * 20));
+          await new Promise(r => setTimeout(r, 30 + Math.random() * 20)); // Type speed
         }
       };
 
@@ -2110,25 +2121,20 @@
         // Initial state
         if (charImg) charImg.classList.add('pop-in');
 
-        // Step 1: Wait & Show Typing
+        // --- Step 1: Mandatory Greeting ---
         await wait(500);
         showTyping();
-
-        // Step 2: Show Msg 1 (Greeting) - hello.png is already default
         await wait(1200);
         hideTyping();
-        await addMessage(messages[0]);
+        await addMessage(mandatoryStart[0]);
 
-        // Step 3: Wait & Typing
+        // --- Step 2: Mandatory Sparkle + Image Swap ---
         await wait(1000);
         showTyping();
         await wait(1500);
-
-        // Step 4: Show Msg 2. SWAP IMAGE HERE to invite.png
-        // "for second then replace with invite.png"
         hideTyping();
 
-        // Image Transition
+        // Image Transition (Invite)
         if (charImg) {
           charImg.classList.remove('pop-in');
           charImg.classList.add('pop-out');
@@ -2140,40 +2146,56 @@
             charImg.classList.add('pop-in');
           }, 300);
         }
-        await wait(300); // small sync wait
+        await wait(300);
 
-        await addMessage(messages[1]);
+        await addMessage(mandatoryStart[1]);
 
-        // Step 5: Wait & Typing
+        // --- Step 3: Filler Messages (Dependent on Load) ---
+        // Only show fillers if NOT loaded
+        let fillerIndex = 0;
+
+        while (!isLoaded && fillerIndex < fillerMessages.length) {
+          await wait(1000);
+
+          // Check again before showing typing
+          if (isLoaded) break;
+
+          showTyping();
+
+          // Wait slightly random time for typing feeling
+          await wait(1500 + Math.random() * 500);
+
+          // Check again before showing message
+          if (isLoaded) {
+            hideTyping();
+            break;
+          }
+
+          hideTyping();
+          await addMessage(fillerMessages[fillerIndex]);
+          fillerIndex++;
+        }
+
+        // --- Step 4: Mandatory Dress Code (Always Last) ---
+        // If we broke out of loop because loaded, we jump here immediately
+
         await wait(1000);
         showTyping();
         await wait(1500);
-
-        // Step 6: Show Msg 3
         hideTyping();
-        await addMessage(messages[2]);
 
-        // Step 7: Wait & Typing for Dress Code
-        await wait(1000);
-        showTyping();
-        await wait(1500);
+        await addMessage(dressCodeMsg, true); // Highlighted
 
-        // Step 8: Show Msg 4 (Dress Code - Highlighted!)
-        hideTyping();
-        await addMessage(messages[3], true); // true = highlighted
-
-        // Show typing indicator again for "ended" state
+        // --- Step 5: Ready State ---
         await wait(500);
         showTyping();
 
-        // Add special class for the ending look (lines)
         const indicator = document.getElementById('typing-indicator');
         if (indicator) {
           indicator.classList.add('ended');
           indicator.innerHTML = '<span style="color: var(--primary-gold); font-size: 0.85rem; font-weight: 500;">Ready! ✨</span>';
         }
 
-        // Now wait for load
         checkLoad();
       };
 
